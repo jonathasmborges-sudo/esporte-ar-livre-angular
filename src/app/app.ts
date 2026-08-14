@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 
 import { MenuComponent } from './component/menu-component/menu-component';
 
+import { AtletaComponent } from './component/atleta-component/atleta-component';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, MenuComponent],

@@ -1,13 +1,18 @@
-#cabecalho, #ul-menu, #logo{
+#cabecalho,
+#ul-menu,
+#logo {
     display: flex;
     align-items: center;
 }
-#ul-menu, #logo{
+
+#ul-menu,
+#logo {
     height: 100%;
 }
-#cabecalho{
+
+#cabecalho {
     width: 1000px;
-    height: 150px;
+    height: 100px;
     margin: 20px auto;
     padding: 25px;
     background-color: var(--cor-primaria);
@@ -15,44 +20,32 @@
     color: var(--branca);
 }
 
-#logo{
+#logo, #menu {
     width: 30%;
     font-size: 25px;
 }
 
-#titulo-logo{
+#titulo-logo {
     color: var(--botao02);
     border: 1px solid var(--botao02);
     margin: 0px 10px;
     padding: 0px 10px;
 }
 
-#titulo-logo {
-    color: var(--botao01);
-    border: 1px solid var(--botao01);
-    margin: 0px 10px;
-    padding: 0px 10px;
-    margin-right: 0px 20px;
-}
-
 #menu{
     width: 70%;
 }
 
-#ul-menu{
+#ul-menu {
     list-style: none;
     justify-content: right;
-}
-
-#ul{
-    list-style: none;
 }
 
 .lnk-menu {
     color: var(--branca);
     text-decoration: none;
     margin: 0px 10px;
-    transition: 0.5s ease;
+    transition:  0.5s ease;
     font-size: 20px;
 }
 
