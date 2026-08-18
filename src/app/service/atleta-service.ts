@@ -4,74 +4,64 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
-
 export class AtletaService {
 
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-    listarAtletasAPI(): Observable<Atleta[]> {
-        const urlApi = `hhtps://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`
-        return this.http.get<Atleta[]>(urlApi)
-    }
+  listarAtletas(): Observable<Atleta[]> {
+    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`;
+    return this.http.get<Atleta[]>(urlApi);
+  }
 
-    listarAtleta(idAtleta: number): Observable<Atleta> {
-        const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${idAtleta}`
-        return this.http.get<Atleta>(urlApi)
-    }
+  listarAtleta(idAtleta: number): Observable<Atleta> {
+    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${idAtleta}`;
+    return this.http.get<Atleta>(urlApi);
+  }
 
-    salvarAtleta(atleta: Atleta): Observable<Atleta> {
-        const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`
-        return this.http.post<Atleta>(urlApi, Atleta)
+  salvarAtleta(atleta: Atleta): Observable<Atleta> {
+    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`;
+    return this.http.post<Atleta>(urlApi, atleta);
+  }
 
-    }
+  excluirAtleta(idAtleta: number): Observable<Atleta> {
+    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${idAtleta}`;
+    return this.http.delete<Atleta>(urlApi);
+  }
 
-    excluirAtleta(idAtleta: number): Observable<Atleta> {
-        const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${idAtleta}`
-        return this.http.delete<Atleta>(urlApi)
-    }
+  alterarAtleta(atleta: Atleta): Observable<Atleta> {
+    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${atleta.id}`;
+    return this.http.put<Atleta>(urlApi, atleta);
+  }
 
-    alterarAtleta(atleta: Atleta): Observable<Atleta> {
-        const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${atleta.id}`
+  /*
+  //DECLARANDO ARRAY atletas
+  private atletas: Atleta[] = []
 
-        return this.http.put<Atleta>(urlApi, atleta)
-    }
+  //DECLARAÇÃO DAS FUNÇÕES DE MANIPULAÇÃO DO ARRAY
+  adicionarAtleta(atleta: Atleta){
+      atleta.id = this.atletas.length + 1
+      this.atletas.push(atleta)
+  }
 
+  listarAtletas(){
+      console.table(this.atletas)
+      return this.atletas
+  }
 
-    // Declarando array atletas
-    private atletas: Atleta[] = []
+  removerElemento(idAtleta: number){
+      this.atletas = this.atletas.filter(elem=>elem.id !== idAtleta)
+  }
 
-    // Declaração das funções de manipulação do array
-    // Adicionando elemento
-    adicionarAtleta(atleta: Atleta) {
+  removerElemento2(atleta: Atleta){
+      let posArray = this.atletas.findIndex(elem=>elem.id !== atleta.id)
+      this.atletas.splice(1,posArray)
+  }
 
-        // Armengue para gerar id
-        atleta.id = this.atletas.length + 1
-        this.atletas.push(atleta)
-    }
-
-    // Listar elementos
-    listarAtletas() {
-        console.table(this.atletas)
-
-        return this.atletas
-    }
-
-    // Remover elemento
-    removerElemento(idAtleta: number) {
-        this.atletas = this.atletas.filter(elem => elem.id !== idAtleta)
-    }
-
-    // Remover elemento 2
-    removerElemento2(atleta: Atleta) {
-        let posArray = this.atletas.findIndex(elem => elem.id !== atleta.id)
-        this.atletas.splice(1, posArray)
-    }
-
-    // Alterando elemento do array
-    alterarElemento(atleta: Atleta) {
-        let posArray = this.atletas.findIndex(elem => elem.id !== atleta.id)
-        this.atletas[posArray] = atleta
-    }
+  alterarElemento(atleta: Atleta){
+      let posArray = this.atletas.findIndex(elem=>elem.id !== atleta.id)
+      this.atletas[posArray] = atleta
+  }
+  */
 }

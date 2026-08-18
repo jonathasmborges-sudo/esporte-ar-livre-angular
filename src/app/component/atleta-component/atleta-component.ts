@@ -43,7 +43,7 @@ export class AtletaComponent {
     this.uf = ''
   }
 
-  salvar() {
+  enviarDadosAtleta() {
     const atleta = new Atleta()
     atleta.nome = this.nome
     atleta.cpf = this.cpf
@@ -54,7 +54,17 @@ export class AtletaComponent {
     atleta.cidade = this.cidade
     atleta.uf = this.uf
 
-    this.atletaService.adicionarAtleta(atleta)
+    console.log(atleta)
+
+    this.atletaService.salvarAtleta(atleta)
+      .subscribe({
+        next: (resposta) => {
+          console.log(resposta)
+        },
+        error: (msgErro) => {
+          console.log(msgErro)
+        }
+      })
 
     this.limparDados()
 
