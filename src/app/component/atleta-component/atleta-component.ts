@@ -23,6 +23,7 @@ export class AtletaComponent {
   uf = ''
 
   idAtleta = 0
+  editar = false
 
   // Declaração do construtor
   constructor(
@@ -43,6 +44,7 @@ export class AtletaComponent {
     this.idAtleta = Number(this.http.snapshot.paramMap.get('id'))
 
     if(this.idAtleta > 0 ){
+      this.editar = true
       this.carregaDados(this.idAtleta)
     }
 
@@ -92,7 +94,8 @@ export class AtletaComponent {
     atleta.cidade = this.cidade
     atleta.uf = this.uf
 
-    console.log(atleta)
+    if (this.editar){
+      atleta.id = this.idAtleta
 
     this.atletaService.salvarAtleta(atleta)
       .subscribe({
@@ -110,4 +113,5 @@ export class AtletaComponent {
 
   }
 
+}
 }
