@@ -5,10 +5,10 @@ import { Corrida } from '../../models/corrida';
 
 
 @Component({
-  selector: 'app-corrida',
+  selector: 'app-corrida-component',
   imports: [FormsModule],
-  templateUrl: './corrida.html',
-  styleUrl: './corrida.css',
+  templateUrl: './corrida-component.html',
+  styleUrl: './corrida-component.css',
 })
 export class CorridaComponent {
   // Declarando atributos

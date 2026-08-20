@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-corrida-component',
   imports: [],
-  templateUrl: './corrida-component.html',
-  styleUrl: './corrida-component.css',
+  templateUrl: './corrida-lista-component.html',
+  styleUrl: './corrida-lista-component.css',
 })
 export class CorridaComponent {}

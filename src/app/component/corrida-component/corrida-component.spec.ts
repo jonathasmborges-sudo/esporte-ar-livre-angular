@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Corrida } from './corrida';
+import { Corrida } from './corrida-component';
 
 describe('Corrida', () => {
   let component: Corrida;

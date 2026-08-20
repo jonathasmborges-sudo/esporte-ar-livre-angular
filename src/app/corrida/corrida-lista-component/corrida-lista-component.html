@@ -1,0 +1,18 @@
+<section id="form">
+    <h2>Corridas Disponíveis</h2>
+    <form action="" id="form-listaCorridas">
+        <label for="descricao">Descrição</label>
+        <input type="text" name="descricao" [(ngModel)]="descricao" class="input01" maxlength="80" required>
+
+        <label for="data">Data</label>
+        <input type="date" name="data" [(ngModel)]="data" class="input01" required>
+
+        <label for="acao">Ação</label>
+        <input type="text" name="acao" [(ngModel)]="acao" class="input01" required>
+
+        <div id="div-btn">
+            <button type="submit" id="btnInscrever-se"></button>
+
+        </div>
+        </form>
+</section>
