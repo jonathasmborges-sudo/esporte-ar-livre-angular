@@ -12,6 +12,6 @@ export class CorridaService {
     }
 
     listarCorridas(){
-        console.log(this.corridas);
+        return this.corridas;
     }
 }

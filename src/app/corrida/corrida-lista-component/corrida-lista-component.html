@@ -1,18 +1,14 @@
-<section id="form">
-    <h2>Corridas Disponíveis</h2>
-    <form action="" id="form-listaCorridas">
-        <label for="descricao">Descrição</label>
-        <input type="text" name="descricao" [(ngModel)]="descricao" class="input01" maxlength="80" required>
+<section id="lista-corridas">
+  <h2>Corridas Disponíveis</h2>
 
-        <label for="data">Data</label>
-        <input type="date" name="data" [(ngModel)]="data" class="input01" required>
-
-        <label for="acao">Ação</label>
-        <input type="text" name="acao" [(ngModel)]="acao" class="input01" required>
-
-        <div id="div-btn">
-            <button type="submit" id="btnInscrever-se"></button>
-
-        </div>
-        </form>
+  @for (corrida of listaCorridas(); track corrida.id) {
+    <div class="item-corrida">
+      <p>
+        {{ corrida.id }} - {{ corrida.descricao }} - {{ corrida.data }} - {{ corrida.distancia }}
+        <button type="button" (click)="inscrever(corrida.id)">Inscrever-se</button>
+      </p>
+    </div>
+  } @empty {
+    <p>Nenhuma corrida disponível no momento.</p>
+  }
 </section>
