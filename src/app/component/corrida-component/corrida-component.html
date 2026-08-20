@@ -1,6 +1,6 @@
 <section id="form">
     <h2>Cadastro de corrida</h2>
-    <form action="" id="form-corrida">
+    <form (ngSubmit)="salvar()" id="form-corrida">
         <label for="descricao">Descrição da corrida</label>
         <input type="text" name="descricao" [(ngModel)]="descricao" class="input01" maxlength="60" required
             placeholder="Ex: 5° Maratona noturna da cidade">
@@ -17,7 +17,7 @@
             value="25km"> 25km
 
         <div id="div-btns">
-            <button type="submit" id="btnAdd">Cadastrar</button>
+            <button type="submit" id="btnAdd">Cadastrar Corrida</button>
         </div>
     </form>
 </section>

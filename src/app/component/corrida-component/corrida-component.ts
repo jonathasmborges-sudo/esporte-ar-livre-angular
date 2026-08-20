@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CorridaService } from '../../service/corrida-service';
 import { Corrida } from '../../models/corrida';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-corrida-component',
@@ -11,14 +11,14 @@ import { Corrida } from '../../models/corrida';
   styleUrl: './corrida-component.css',
 })
 export class CorridaComponent {
-  // Declarando atributos
-  data = ''
-  distancia = ''
-  descricao = ''
+  data = '';
+  distancia = '';
+  descricao = '';
 
-
-  // Declaração do construtor
-  constructor(private corridaService: CorridaService) { }
+  constructor(
+    private corridaService: CorridaService,
+    private router: Router
+  ) { }
 
   limparDados(){
     this.data = '';
@@ -34,6 +34,8 @@ export class CorridaComponent {
 
     this.corridaService.adicionarCorrida(corrida);
     this.limparDados();
-    this.corridaService.listarCorridas();
+
+    // Redireciona para a rota '/corridas' configurada no app.routes.ts
+    this.router.navigate(['/corridas']);
   }
 }

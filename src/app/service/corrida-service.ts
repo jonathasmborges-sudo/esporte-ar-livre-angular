@@ -7,11 +7,12 @@ import { Corrida } from "../models/corrida";
 export class CorridaService {
     private corridas: Corrida[] = [];
 
-    adicionarCorrida(corrida: Corrida){
+    adicionarCorrida(corrida: Corrida) {
+        corrida.id = this.corridas.length + 1;
         this.corridas.push(corrida);
     }
 
-    listarCorridas(){
+    listarCorridas() {
         return this.corridas;
     }
 }
