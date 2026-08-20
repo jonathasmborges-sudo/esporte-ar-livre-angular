@@ -1,7 +1,7 @@
 <section id="form">
     <h2> {{ !editar ? 'cadastro' : 'Alterar'}} Atleta </h2>
 
-    <form action="" id="form-atleta"(submit)="enviarDadosAtleta()">
+    <form id="form-atleta"(ngSubmit)="enviarDadosAtleta()">
         <label for="nome">Nome Completo*</label>
         <input type="text" name="nome" id="nome" [(ngModel)]="nome" class="input01" maxlength="60" required
             placeholder="Digite o nome Completo">

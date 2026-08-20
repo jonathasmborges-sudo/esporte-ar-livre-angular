@@ -84,19 +84,29 @@ export class AtletaComponent {
   }
 
   enviarDadosAtleta() {
-    const atleta = new Atleta()
-    atleta.nome = this.nome
-    atleta.cpf = this.cpf
-    atleta.sexo = this.sexo
-    atleta.cep = this.cep
-    atleta.ruaLogradouro = this.ruaLogradouro
-    atleta.bairro = this.bairro
-    atleta.cidade = this.cidade
-    atleta.uf = this.uf
+  const atleta = new Atleta()
+  atleta.nome = this.nome
+  atleta.cpf = this.cpf
+  atleta.sexo = this.sexo
+  atleta.cep = this.cep
+  atleta.ruaLogradouro = this.ruaLogradouro
+  atleta.bairro = this.bairro
+  atleta.cidade = this.cidade
+  atleta.uf = this.uf
 
-    if (this.editar){
-      atleta.id = this.idAtleta
+  if (this.editar) {
+    atleta.id = this.idAtleta
 
+    this.atletaService.alterarAtleta(atleta)
+      .subscribe({
+        next: (resposta) => {
+          console.log(resposta)
+        },
+        error: (msgErro) => {
+          console.log(msgErro)
+        }
+      })
+  } else {
     this.atletaService.salvarAtleta(atleta)
       .subscribe({
         next: (resposta) => {
@@ -106,12 +116,8 @@ export class AtletaComponent {
           console.log(msgErro)
         }
       })
-
-    this.limparDados()
-
-    this.atletaService.listarAtletas()
-
   }
 
+  this.limparDados()
 }
 }

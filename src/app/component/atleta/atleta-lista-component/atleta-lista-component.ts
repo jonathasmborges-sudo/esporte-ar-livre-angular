@@ -22,18 +22,16 @@ export class AtletaListaComponent {
   }
 
   listar(){
-    this.listaService.listarAtletas()
-    .subscribe({
-      next: (dadosAtletas) => {
-        //this.listaAtletas = [...dadosAtletas].sort((a, b) => a.nome.localeCompare(b.nome)))
-
-        console.table(this.listaAtletas())
-      },
-      error:(msgErro) => {
-        console.log("Erro ao listar Atletas", msgErro)
-      }
-    })
-  }
+  this.listaService.listarAtletas()
+  .subscribe({
+    next: (dadosAtletas) => {
+      this.listaAtletas.set(dadosAtletas) 
+    },
+    error:(msgErro) => {
+      console.log("Erro ao listar Atletas", msgErro)
+    }
+  })
+}
 
   excluir(id: number) {
     if (confirm("Deseja excluir o atleta?")){
