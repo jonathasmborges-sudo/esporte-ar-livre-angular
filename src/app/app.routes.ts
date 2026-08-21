@@ -4,6 +4,7 @@ import { AtletaComponent } from './component/atleta-component/atleta-component';
 import { CorridaComponent } from './component/corrida-component/corrida-component';
 import { AtletaListaComponent } from './component/atleta/atleta-lista-component/atleta-lista-component';
 import { CorridaListaComponent } from './corrida/corrida-lista-component/corrida-lista-component';
+import { InscricaoComponent } from './component/inscricao-component/inscricao-component';
 
 export const routes: Routes = [
     {
@@ -38,5 +39,10 @@ export const routes: Routes = [
     {
         path: "cadastroAtleta/:id",
         component: AtletaComponent
+
+    },
+    {
+        path: "inscricoes",
+        component: InscricaoComponent
     }
 ];
