@@ -1,89 +1,60 @@
 #form {
-  max-width: 650px;
-  margin: 30px auto;
-  padding: 25px 30px;
-  background-color: #ffffff;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   font-family: Arial, sans-serif;
 }
 
 #form h2 {
-  margin-top: 0;
-  margin-bottom: 20px;
   color: #1b4332;
-  font-size: 1.5rem;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 8px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  margin-bottom: 15px;
 }
 
 form > div {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  margin-bottom: 15px;
 }
 
 label {
+  display: block;
   font-weight: bold;
+  margin-bottom: 5px;
   font-size: 0.9rem;
-  color: #2d3748;
 }
 
 .input01 {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #cbd5e0;
-  border-radius: 5px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   box-sizing: border-box;
-  font-size: 0.95rem;
 }
 
-.input01:focus {
-  outline: none;
-  border-color: #2d6a4f;
+/* Coloca as opções de distância (radio) na mesma linha */
+input[type="radio"] {
+  margin-left: 10px;
+  margin-right: 3px;
 }
 
-/* Opções de Radio e Checkbox */
-input[type="radio"], input[type="checkbox"] {
-  cursor: pointer;
-  accent-color: #2d6a4f;
-}
-
-/* Destaque do Valor */
-p strong {
-  color: #2d6a4f;
-  font-size: 1.2rem;
-}
-
-/* Botão principal */
-#div-btns {
-  margin-top: 10px;
+/* Checkbox dos termos */
+#chkTermos {
+  margin-right: 8px;
 }
 
 #btnAdd {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   background-color: #2d6a4f;
-  color: #ffffff;
+  color: white;
   border: none;
-  border-radius: 6px;
-  font-size: 1rem;
+  border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-#btnAdd:hover {
-  background-color: #1b4332;
 }
 
 #btnAdd:disabled {
-  background-color: #a0aec0;
+  background-color: #ccc;
   cursor: not-allowed;
 }
