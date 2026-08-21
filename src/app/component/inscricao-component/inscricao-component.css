@@ -1,0 +1,89 @@
+#form {
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 25px 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+#form h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #1b4332;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #2d3748;
+}
+
+.input01 {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+}
+
+.input01:focus {
+  outline: none;
+  border-color: #2d6a4f;
+}
+
+/* Opções de Radio e Checkbox */
+input[type="radio"], input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: #2d6a4f;
+}
+
+/* Destaque do Valor */
+p strong {
+  color: #2d6a4f;
+  font-size: 1.2rem;
+}
+
+/* Botão principal */
+#div-btns {
+  margin-top: 10px;
+}
+
+#btnAdd {
+  width: 100%;
+  padding: 12px;
+  background-color: #2d6a4f;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#btnAdd:hover {
+  background-color: #1b4332;
+}
+
+#btnAdd:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
