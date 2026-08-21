@@ -32,15 +32,18 @@ label {
   box-sizing: border-box;
 }
 
-/* Coloca as opções de distância (radio) na mesma linha */
+/* Opções de distância (radio) na mesma linha */
 input[type="radio"] {
   margin-left: 10px;
   margin-right: 3px;
 }
 
-/* Checkbox dos termos */
-#chkTermos {
-  margin-right: 8px;
+/* Deixa o checkbox e o texto na mesma linha */
+label[for="chkTermos"] {
+  display: inline;
+  font-weight: normal;
+  margin-left: 6px;
+  cursor: pointer;
 }
 
 #btnAdd {
