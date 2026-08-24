@@ -1,37 +1,36 @@
 #section-lista-Atleta {
-    width: 100px;
-    min-height: 550;
+    max-width: 750px;
+    width: 100%;
+    min-height: 550px;
     margin: 20px auto;
     padding: 25px;
     color: var(--cor-primaria);
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .atleta-item {
     width: 100%;
     min-height: 35px;
     padding: 10px 15px;
-    margin: 20px 0px;
+    margin: 10px 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .atleta-item:hover {
     background-color: var(--cor02);
 }
 
-.spa-dados-atleta {
-    width: 90%;
-    height: 100%;
+.span-dados-atleta {
+    flex: 1;
 }
 
 .span-lnk-atletas {
-    width: 10%;
-    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    gap: 15px;
 }
 
 .lnk-atleta {
