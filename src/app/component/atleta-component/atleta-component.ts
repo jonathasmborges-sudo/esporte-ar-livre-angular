@@ -30,7 +30,7 @@ export class AtletaComponent {
   constructor(
     private atletaService: AtletaService,
     private http: ActivatedRoute,
-    private cdr:ChangeDetectorRef
+    private cdr: ChangeDetectorRef
   ) { }
 
   // Declaração de funções
@@ -44,7 +44,7 @@ export class AtletaComponent {
   ngOnInit() {
     this.idAtleta = Number(this.http.snapshot.paramMap.get('id'))
 
-    if(this.idAtleta > 0 ){
+    if (this.idAtleta > 0) {
       this.editar = true
       this.carregaDados(this.idAtleta)
     }
@@ -87,41 +87,41 @@ export class AtletaComponent {
   }
 
   enviarDadosAtleta() {
-  const atleta = new Atleta()
-  atleta.nome = this.nome
-  atleta.cpf = this.cpf
-  atleta.dataNascimento = this.dataNascimento
-  atleta.sexo = this.sexo
-  atleta.cep = this.cep
-  atleta.ruaLogradouro = this.ruaLogradouro
-  atleta.bairro = this.bairro
-  atleta.cidade = this.cidade
-  atleta.uf = this.uf
+    const atleta = new Atleta()
+    atleta.nome = this.nome
+    atleta.cpf = this.cpf
+    atleta.dataNascimento = this.dataNascimento
+    atleta.sexo = this.sexo
+    atleta.cep = this.cep
+    atleta.ruaLogradouro = this.ruaLogradouro
+    atleta.bairro = this.bairro
+    atleta.cidade = this.cidade
+    atleta.uf = this.uf
 
-  if (this.editar) {
-    atleta.id = this.idAtleta
+    if (this.editar) {
+      atleta.id = this.idAtleta
 
-    this.atletaService.alterarAtleta(atleta)
-      .subscribe({
-        next: (resposta) => {
-          console.log(resposta)
-        },
-        error: (msgErro) => {
-          console.log(msgErro)
-        }
-      })
-  } else {
-    this.atletaService.salvarAtleta(atleta)
-      .subscribe({
-        next: (resposta) => {
-          console.log(resposta)
-        },
-        error: (msgErro) => {
-          console.log(msgErro)
-        }
-      })
+      this.atletaService.alterarAtleta(atleta)
+        .subscribe({
+          next: (resposta) => {
+            console.log(resposta)
+          },
+          error: (msgErro) => {
+            console.log(msgErro)
+          }
+        })
+    } else {
+      this.atletaService.salvarAtleta(atleta)
+        .subscribe({
+          next: (resposta) => {
+            console.log(resposta)
+          },
+          error: (msgErro) => {
+            console.log(msgErro)
+          }
+        })
+    }
+
+    this.limparDados()
   }
-
-  this.limparDados()
-}
 }
