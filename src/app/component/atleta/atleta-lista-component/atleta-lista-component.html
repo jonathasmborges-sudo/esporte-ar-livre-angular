@@ -4,7 +4,7 @@
     @for(elem of listaAtletas(); track elem.id) {
     <div class="atleta-item">
         <span class="span-dados-atleta">
-            {{elem.id}} - {{ elem.nome }} - {{ elem.cpf }} - {{ calcularIdade(elem.dataNascimento)}} anos -
+            {{elem.id}} - {{ elem.nome }} - {{ elem.cpf }} - {{ calcIdade(elem.dataNascimento)}} anos -
             {{elem.cidade }} / {{ elem.uf }}
         </span>
         <span class="span-lnk-atletas">
