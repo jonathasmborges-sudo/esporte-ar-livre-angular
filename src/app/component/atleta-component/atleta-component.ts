@@ -15,6 +15,7 @@ export class AtletaComponent {
   // Declarando atributos
   nome = ''
   cpf = 0
+  dataNascimento = ''
   sexo = ''
   cep = 0
   ruaLogradouro = ''
@@ -53,6 +54,7 @@ export class AtletaComponent {
   limparDados() {
     this.nome = ''
     this.cpf = 0
+    this.dataNascimento = ''
     this.sexo = ''
     this.cep = 0
     this.ruaLogradouro = ''
@@ -67,6 +69,7 @@ export class AtletaComponent {
         next: (dadosAtleta) => {
           this.nome = dadosAtleta.nome
           this.cpf = dadosAtleta.cpf
+          this.dataNascimento = dadosAtleta.dataNascimento
           this.sexo = dadosAtleta.sexo
           this.cep = dadosAtleta.cep
           this.ruaLogradouro = dadosAtleta.ruaLogradouro
@@ -87,6 +90,7 @@ export class AtletaComponent {
   const atleta = new Atleta()
   atleta.nome = this.nome
   atleta.cpf = this.cpf
+  atleta.dataNascimento = this.dataNascimento
   atleta.sexo = this.sexo
   atleta.cep = this.cep
   atleta.ruaLogradouro = this.ruaLogradouro

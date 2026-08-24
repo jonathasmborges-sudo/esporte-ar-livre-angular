@@ -52,4 +52,20 @@ export class AtletaListaComponent {
   carregaDadosAtletaForm(atleta: Atleta){
     this.router.navigate(['/cadastroAtleta', atleta.id])
   }
+
+  calcularIdade(dataNascimento: string): number {
+    if (!dataNascimento) return 0
+
+    const hoje = new Date()
+    const nascimento = new Date (dataNascimento)
+    let idade = hoje.getFullYear() - nascimento.getFullYear()
+    const mes = hoje.getMonth() - nascimento.getMonth()
+
+    // Se ainda não chegou o aniversário no ano atual, subtrai por 1 ano
+    if (mes <0 || (mes === 0 && hoje.getDate() <nascimento.getDate ())) {
+      idade--
+    }
+    
+    return idade
+  }
 }
