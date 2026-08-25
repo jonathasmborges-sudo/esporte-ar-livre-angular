@@ -61,8 +61,8 @@ describe('AtletaService', () => {
       expect(dados[1].nome).toBe('Maria');
     });
 
-   //const request = httpMock.expectOne('http://localhost:3000/atletas')
-const request = httpMock.expectOne(`https://6a836243cb486d243403a95a.mockapi.io/atleta`)
+    //const request = httpMock.expectOne('http://localhost:3000/atletas')
+    const request = httpMock.expectOne(`https://6a836243cb486d243403a95a.mockapi.io/atleta`)
 
     expect(request.request.method).toBe('GET');
 
