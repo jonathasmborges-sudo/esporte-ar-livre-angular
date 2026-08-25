@@ -61,11 +61,31 @@ describe('AtletaService', () => {
       expect(dados[1].nome).toBe('Maria');
     });
 
+    //Post
+    it('deve adicionar uma pessoa', ()=>{
+      const atleta: Atleta = {
+        "nome": "Maria Flor"
+        "cpf": 12345678910,
+        "sexo": "M",
+        "cep": 4912345678910,
+        "bairro": "Centro",
+        "cidade": "Aracaju",
+        "uf": "Se",
+        "dataNascimento": "2000-02-25",
+        "id": 3,
+        "ruaLogradouro": "Rua Sei lá das quantas"
+      }
+
+      service.salvarAtleta(atleta).subscribe(atleta =>{
+        expect(atletas).toEqual(atletas)
+      })
+    })
+
     //const request = httpMock.expectOne('http://localhost:3000/atletas')
     const request = httpMock.expectOne(`https://6a836243cb486d243403a95a.mockapi.io/atleta`)
 
     expect(request.request.method).toBe('GET');
 
     request.flush(atletas);
-  });
+  }); 
 });
