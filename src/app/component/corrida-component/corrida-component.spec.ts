@@ -1,17 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
-import { Corrida } from './corrida-component';
+import { CorridaComponent } from './corrida-component';
 
-describe('Corrida', () => {
-  let component: Corrida;
-  let fixture: ComponentFixture<Corrida>;
+describe('CorridaComponent', () => {
+  let component: CorridaComponent;
+  let fixture: ComponentFixture<CorridaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Corrida],
+      imports: [CorridaComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting()
+      ]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Corrida);
+    fixture = TestBed.createComponent(CorridaComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
