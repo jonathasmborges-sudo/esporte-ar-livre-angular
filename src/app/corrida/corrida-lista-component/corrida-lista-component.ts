@@ -14,7 +14,9 @@ export class CorridaListaComponent implements OnInit {
   constructor(private corridaService: CorridaService) { }
 
   ngOnInit(): void {
-    this.listaCorridas.set(this.corridaService.listarCorridas());
+    this.corridaService.listarCorridas().subscribe((corridas)=>{
+      this.listaCorridas.set(corridas)
+    })
 
   }
 
