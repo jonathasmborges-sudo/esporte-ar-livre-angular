@@ -27,15 +27,23 @@ export class CorridaComponent {
   }
 
   salvar(){
-    const corrida = new Corrida();
-    corrida.data = this.data;
-    corrida.distancia = this.distancia;
-    corrida.descricao = this.descricao;
+    const corrida: Corrida = {
+      data: this.data,
+      distancia: this.distancia,
+      descricao: this.descricao
+    };
 
-    this.corridaService.adicionarCorrida(corrida);
-    this.limparDados();
+    console.log('Payload enviado para a MockAPI:', corrida);
 
-    // Redireciona para a rota '/corridas' configurada no app.routes.ts
-    this.router.navigate(['/corridas']);
+    this.corridaService.adicionarCorrida(corrida).subscribe({
+      next: (resposta) => {
+        console.log('Sucesso na API:', resposta);
+        this.limparDados();
+        this.router.navigate(['/corridas']);
+      },
+      error: (err) => {
+        console.error('Detalhe do erro HTTP 400 da MockAPI:', err.error || err);
+      }
+    });
   }
 }
