@@ -11,7 +11,7 @@ export class AtletaService {
   constructor(private http: HttpClient) { }
 
   listarAtletas(): Observable<Atleta[]> {
-    const urlApi =`https://6a836243cb486d243403a95a.mockapi.io/atleta`;
+    const urlApi = `https://6a836243cb486d243403a95a.mockapi.io/atleta`;
     return this.http.get<Atleta[]>(urlApi);
   }
 
@@ -35,19 +35,19 @@ export class AtletaService {
     return this.http.put<Atleta>(urlApi, atleta);
   }
 
-   calcularIdade(dataNascimento: string): number {
+  calcularIdade(dataNascimento: string): number {
     if (!dataNascimento) return 0
 
     const hoje = new Date()
-    const nascimento = new Date (dataNascimento)
+    const nascimento = new Date(dataNascimento)
     let idade = hoje.getFullYear() - nascimento.getFullYear()
     const mes = hoje.getMonth() - nascimento.getMonth()
 
     // Se ainda não chegou o aniversário no ano atual, subtrai por 1 ano
-    if (mes <0 || (mes === 0 && hoje.getDate() <nascimento.getDate ())) {
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
       idade--
     }
-    
+
     return idade
   }
 
@@ -80,5 +80,5 @@ export class AtletaService {
       this.atletas[posArray] = atleta
   }
   */
- 
+
 }
