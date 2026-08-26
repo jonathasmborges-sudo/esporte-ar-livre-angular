@@ -1,38 +1,116 @@
 import { TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+
 import { CorridaService } from '../../service/corrida-service';
 import { Corrida } from '../../models/corrida';
 
 describe('CorridaService', () => {
+
   let service: CorridaService;
+  let httpMock: HttpTestingController;
+
+  const urlApi = 'https://6a836243cb486d243403a95a.mockapi.io/corrida';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CorridaService]
+      providers: [
+        CorridaService,
+        provideHttpClient(),
+        provideHttpClientTesting()
+      ]
     });
+
     service = TestBed.inject(CorridaService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
-  it('deve ser criado com sucesso', () => {
-    expect(service).toBeTruthy();
+  afterEach(() => {
+    httpMock.verify();
   });
 
-  it('Deve iniciar com a lista de corridas vazia', () => {
-    const corridas = service.listarCorridas();
-    expect(corridas.length).toBe(0);
+  // GET (Listar todas)
+  it('Deve retornar as corridas', () => {
+    const corridasMock: Corrida[] = [
+      { id: 1, descricao: 'Corrida de Aracaju', data: '2026-09-10', distancia: '5km' },
+      { id: 2, descricao: 'Corrida Esporte Livre', data: '2026-10-15', distancia: '10km' }
+    ];
+
+    service.listarCorridas().subscribe(corridas => {
+      expect(corridas.length).toBe(2);
+      expect(corridas[0].descricao).toBe('Corrida de Aracaju');
+      expect(corridas[1].descricao).toBe('Corrida Esporte Livre');
+    });
+
+    const request = httpMock.expectOne(urlApi);
+    expect(request.request.method).toBe('GET');
+    request.flush(corridasMock);
   });
 
-  it('Deve adicionar uma corrida', () => {
-    const novaCorrida: Corrida = {
+  // GET por ID
+  it('Deve retornar uma corrida pelo ID', () => {
+    const corridaMock: Corrida = {
+      id: 1,
+      descricao: 'Corrida de Aracaju',
       data: '2026-09-10',
-      distancia: '5km',
-      descricao: 'Corrida de Aracaju'
+      distancia: '5km'
     };
 
-    service.adicionarCorrida(novaCorrida);
+    service.listarCorrida(1).subscribe(corrida => {
+      expect(corrida.id).toBe(1);
+      expect(corrida.descricao).toBe('Corrida de Aracaju');
+    });
 
-    const corridas = service.listarCorridas();
-    expect(corridas.length).toBe(1);
-    expect(corridas[0].descricao).toBe('Corrida de Aracaju');
-    expect(corridas[0].id).toBe(1);
+    const request = httpMock.expectOne(`${urlApi}/1`);
+    expect(request.request.method).toBe('GET');
+    request.flush(corridaMock);
   });
+
+  // POST (Adicionar)
+  it('Deve adicionar uma corrida', () => {
+    const novaCorrida: Corrida = {
+      id: 3,
+      descricao: 'Nova Corrida',
+      data: '2026-11-20',
+      distancia: '21km'
+    };
+
+    service.adicionarCorrida(novaCorrida).subscribe(corrida => {
+      expect(corrida).toEqual(novaCorrida);
+    });
+
+    const request = httpMock.expectOne(urlApi);
+    expect(request.request.method).toBe('POST');
+    expect(request.request.body).toEqual(novaCorrida);
+    request.flush(novaCorrida);
+  });
+
+  // DELETE (Excluir)
+  it('Deve excluir uma corrida', () => {
+    service.excluirCorrida(1).subscribe();
+
+    const request = httpMock.expectOne(`${urlApi}/1`);
+    expect(request.request.method).toBe('DELETE');
+    request.flush(null);
+  });
+
+  // PUT (Alterar)
+  it('Deve alterar uma corrida', () => {
+    const corridaAlterada: Corrida = {
+      id: 1,
+      descricao: 'Corrida Alterada',
+      data: '2026-12-01',
+      distancia: '42km'
+    };
+
+    service.alterarCorrida(corridaAlterada).subscribe(corrida => {
+      expect(corrida).toEqual(corridaAlterada);
+    });
+
+    const request = httpMock.expectOne(`${urlApi}/1`);
+    expect(request.request.method).toBe('PUT');
+    expect(request.request.body).toEqual(corridaAlterada);
+    request.flush(corridaAlterada);
+  });
+
 });
