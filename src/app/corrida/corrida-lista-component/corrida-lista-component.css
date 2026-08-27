@@ -1,0 +1,59 @@
+#lista-corridas {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+#lista-corridas h2 {
+  color: #1c4d2e;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  border-bottom: 2px solid #e8eee9;
+  padding-bottom: 0.5rem;
+}
+
+.item-corrida {
+  background-color: #f9fbf9;
+  border: 1px solid #e1e8e2;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.item-corrida:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.item-corrida p {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.item-corrida button {
+  background-color: #1c4d2e;
+  color: #ffffff;
+  border: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.item-corrida button:hover {
+  background-color: #143821;
+}
