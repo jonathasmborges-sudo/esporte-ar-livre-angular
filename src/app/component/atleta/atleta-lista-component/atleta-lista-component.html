@@ -4,8 +4,8 @@
     @for(elem of listaAtletas(); track elem.id) {
     <div class="atleta-item">
         <span class="span-dados-atleta">
-            {{elem.id}} - {{ elem.nome }} - {{ elem.cpf }} - {{ calcIdade(elem.dataNascimento)}} anos -
-            {{elem.cidade }} / {{ elem.uf }}
+            {{ elem.id }} - {{ elem.nome }} - {{ elem.sexo }} - {{ calcIdade(elem.datanascimento) }} anos - {{ elem.peso
+            }}kg / {{ elem.altura }}m
         </span>
         <span class="span-lnk-atletas">
             <a class="lnk-atleta lnk-alterar" (click)="carregaDadosAtletaForm(elem)">A</a>

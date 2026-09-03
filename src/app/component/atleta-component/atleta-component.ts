@@ -12,16 +12,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AtletaComponent {
 
-  // Declarando atributos
+  // Atributos ajustados para o esquema do MySQL
   nome = ''
-  cpf = 0
-  dataNascimento = ''
   sexo = ''
-  cep = 0
-  ruaLogradouro = ''
-  bairro = ''
-  cidade = ''
-  uf = ''
+  datanascimento = ''
+  peso = 0
+  altura = 0
 
   idAtleta = 0
   editar = false
@@ -35,9 +31,7 @@ export class AtletaComponent {
 
   // Declaração de funções
   exibirDados() {
-    console.log(this.nome, this.cpf, this.sexo, this.cep, this.ruaLogradouro, this.bairro, this.cidade, this.uf)
-
-
+    console.log(this.nome, this.sexo, this.datanascimento, this.peso, this.altura)
     this.limparDados()
   }
 
@@ -48,19 +42,14 @@ export class AtletaComponent {
       this.editar = true
       this.carregaDados(this.idAtleta)
     }
-
   }
 
   limparDados() {
     this.nome = ''
-    this.cpf = 0
-    this.dataNascimento = ''
     this.sexo = ''
-    this.cep = 0
-    this.ruaLogradouro = ''
-    this.bairro = ''
-    this.cidade = ''
-    this.uf = ''
+    this.datanascimento = ''
+    this.peso = 0
+    this.altura = 0
   }
 
   carregaDados(idAtleta: number) {
@@ -68,14 +57,10 @@ export class AtletaComponent {
       .subscribe({
         next: (dadosAtleta) => {
           this.nome = dadosAtleta.nome
-          this.cpf = dadosAtleta.cpf
-          this.dataNascimento = dadosAtleta.dataNascimento
           this.sexo = dadosAtleta.sexo
-          this.cep = dadosAtleta.cep
-          this.ruaLogradouro = dadosAtleta.ruaLogradouro
-          this.bairro = dadosAtleta.bairro
-          this.cidade = dadosAtleta.cidade
-          this.uf = dadosAtleta.uf
+          this.datanascimento = dadosAtleta.datanascimento
+          this.peso = dadosAtleta.peso
+          this.altura = dadosAtleta.altura
 
           // Executa a detecção de alteração manualmente
           this.cdr.detectChanges()
@@ -89,14 +74,10 @@ export class AtletaComponent {
   enviarDadosAtleta() {
     const atleta = new Atleta()
     atleta.nome = this.nome
-    atleta.cpf = this.cpf
-    atleta.dataNascimento = this.dataNascimento
     atleta.sexo = this.sexo
-    atleta.cep = this.cep
-    atleta.ruaLogradouro = this.ruaLogradouro
-    atleta.bairro = this.bairro
-    atleta.cidade = this.cidade
-    atleta.uf = this.uf
+    atleta.datanascimento = this.datanascimento
+    atleta.peso = this.peso
+    atleta.altura = this.altura
 
     if (this.editar) {
       atleta.id = this.idAtleta
